@@ -7,7 +7,7 @@ my codebase.
 # About author: Linghan Xing
 
 I am a computer science master candidate in Northeastern University. 
-You can find me [here](linghanxing.com). 
+You can find me [here](http://www.linghanxing.com). 
 
 # Course info
 
