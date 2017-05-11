@@ -2,22 +2,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MdMenuModule, MdButtonModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestListComponent } from './test-list/test-list.component';
+
+const appRoutes: Routes = [
+  { path: 'test-list', component: TestListComponent },
+  { path: 'home', redirectTo: '/' }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdMenuModule,
-    MdButtonModule,
-    BrowserAnimationsModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

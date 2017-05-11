@@ -1,18 +1,15 @@
-<md-menu #appMenu="mdMenu">
-  <button md-menu-item routerLink="home">Project</button>
-  <a md-menu-item routerLink="home">Assignment</a>
-  <a md-menu-item routerLink="home">Test MongoDB</a>
-  <a md-menu-item routerLink="home">GitRepo</a>
-</md-menu>
-
-
-<button md-icon-button [mdMenuTriggerFor]="appMenu">
-  <md-icon>Menu</md-icon>
-</button>
+<a href="https://github.com/LinghanX/wedding-planner">Project</a>
+<a routerLink="home">Assignment</a>
+<a routerLink="test-list">Test MongoDB</a>
+<a href="https://github.com/LinghanX/xing-linghan-webdev">GitRepo</a>
 
 <div class="container main-body">
   <h1>
     {{title}}
   </h1>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
 </div>
 
