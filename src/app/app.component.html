@@ -1,0 +1,18 @@
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item routerLink="home">Project</button>
+  <a md-menu-item routerLink="home">Assignment</a>
+  <a md-menu-item routerLink="home">Test MongoDB</a>
+  <a md-menu-item routerLink="home">GitRepo</a>
+</md-menu>
+
+
+<button md-icon-button [mdMenuTriggerFor]="appMenu">
+  <md-icon>Menu</md-icon>
+</button>
+
+<div class="container main-body">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+
