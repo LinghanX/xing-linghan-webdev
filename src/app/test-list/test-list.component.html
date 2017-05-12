@@ -5,6 +5,6 @@
   <li *ngFor="let testList of testLists">
     {{ testList.message }}
     <br/>
-    <button (click)="deleteTestList(testList)">Delete</button>
+    <button (click)="deleteTestList(testList._id)">Delete</button>
   </li>
 </ul>

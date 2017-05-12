@@ -1,25 +1,41 @@
 import { Injectable } from '@angular/core';
 import { TestList } from './test-list/test-list';
-import { Http, Response } from '@angular/http';
+import {
+  Http,
+  Response,
+  Headers,
+  RequestOptions
+} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TestListService {
-  testLists: TestList[];
-
   constructor(private http: Http) {
   }
 
-  getTestLists() {
-    return this.http.get('/api/test');
+  getTestLists(): Observable<TestList[]> {
+    return this.http.get('/api/test')
+      .map((res:Response) => res.json() as TestList[])
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  addTestList(newTestList: string): void {
+  addTestList(newTestList: string): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({
+      headers: headers
+    });
+
+    const body = { message: newTestList };
+
+    return this.http.post('api/test', body, options)
+      .catch((error: any) => Observable
+        .throw( error.json().error || 'Server error'));
   }
 
-  deleteTestList(testList: TestList): void {
+  deleteTestList(id: string) {
+    return this.http.delete('api/test/' + id);
   }
 }

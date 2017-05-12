@@ -23,17 +23,22 @@ export class TestListComponent implements OnInit {
 
   getTestLists(): void {
     this.testListService.getTestLists()
-      .subscribe(response => {
-        console.log(response.json());
-        this.testLists = response.json() as TestList[];
-      });
+      .subscribe(
+        testLists => {
+          this.testLists = testLists as TestList[];
+          console.log(this.testLists);
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
   addTestList(newTestList: string): void {
     this.testListService.addTestList(newTestList);
   }
 
-  deleteTestList(testList: TestList): void {
-    this.testListService.deleteTestList(testList);
+  deleteTestList(id: string): void {
+    this.testListService.deleteTestList(id);
   }
 }
