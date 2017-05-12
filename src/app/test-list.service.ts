@@ -1,32 +1,25 @@
 import { Injectable } from '@angular/core';
 import { TestList } from './test-list/test-list';
+import { Http, Response } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class TestListService {
-  initialTestLists: TestList[];
+  testLists: TestList[];
 
-  constructor() {
-    this.initialTestLists = [
-      new TestList("first test"),
-      new TestList("second test"),
-      new TestList("third test"),
-      new TestList("fourth test")
-    ]
+  constructor(private http: Http) {
   }
 
-  getTestLists(): Promise<TestList[]> {
-    return Promise.resolve(this.initialTestLists);
+  getTestLists() {
+    return this.http.get('/api/test');
   }
 
   addTestList(newTestList: string): void {
-    let testList: TestList = new TestList(newTestList);
-    this.initialTestLists.push(testList);
   }
 
   deleteTestList(testList: TestList): void {
-    let index : number = this.initialTestLists.indexOf(testList);
-    if(index > -1){
-      this.initialTestLists.splice(index, 1);
-    }
   }
 }

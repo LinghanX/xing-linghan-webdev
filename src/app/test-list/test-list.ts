@@ -1,9 +1,7 @@
 export class TestList {
-  content: string;
-  createdAt: string;
+  message: string;
 
   constructor(content: string){
-    this.content = content;
-    this.createdAt = new Date().toString();
+    this.message = content;
   }
 }

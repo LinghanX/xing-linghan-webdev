@@ -3,7 +3,7 @@
 
 <ul>
   <li *ngFor="let testList of testLists">
-    {{ testList.content }} is created at {{ testList.createdAt }}
+    {{ testList.message }}
     <br/>
     <button (click)="deleteTestList(testList)">Delete</button>
   </li>

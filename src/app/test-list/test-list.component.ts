@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TestList } from './test-list';
 import { TestListService } from '../test-list.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-test-list',
@@ -17,8 +18,15 @@ export class TestListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTestLists();
+  }
+
+  getTestLists(): void {
     this.testListService.getTestLists()
-      .then(testLists => this.testLists = testLists);
+      .subscribe(response => {
+        console.log(response.json());
+        this.testLists = response.json() as TestList[];
+      });
   }
 
   addTestList(newTestList: string): void {
