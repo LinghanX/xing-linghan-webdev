@@ -22,20 +22,17 @@ export class TestListService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  addTestList(newTestList: string): Observable<any> {
-    const headers = new Headers({ 'Content-Type': 'application/json'});
-    const options = new RequestOptions({
-      headers: headers
-    });
+  addTestList(newTestList: string) {
+    console.log('addTestList is called');
 
     const body = { message: newTestList };
 
-    return this.http.post('api/test', body, options)
-      .catch((error: any) => Observable
-        .throw( error.json().error || 'Server error'));
+    return this.http.post('api/test', body)
+      .subscribe(result => console.log(result));
   }
 
   deleteTestList(id: string) {
-    return this.http.delete('api/test/' + id);
+    return this.http.delete('api/test/' + id)
+      .subscribe(result => console.log(result));
   }
 }

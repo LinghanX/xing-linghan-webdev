@@ -35,10 +35,13 @@ export class TestListComponent implements OnInit {
   }
 
   addTestList(newTestList: string): void {
+    console.log('This is triggered');
     this.testListService.addTestList(newTestList);
+    this.getTestLists();
   }
 
   deleteTestList(id: string): void {
     this.testListService.deleteTestList(id);
+    this.getTestLists();
   }
 }
