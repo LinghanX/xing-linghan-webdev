@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TestList } from './test-list/test-list';
-import {
-  Http,
-  Response,
-  Headers,
-  RequestOptions
-} from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -22,17 +17,19 @@ export class TestListService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  addTestList(newTestList: string) {
-    console.log('addTestList is called');
-
+  addTestList(newTestList: string): Observable<TestList> {
     const body = { message: newTestList };
 
     return this.http.post('api/test', body)
-      .subscribe(result => console.log(result));
+      .map((res:Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+
+     // .subscribe(result => console.log(result));
   }
 
-  deleteTestList(id: string) {
+  deleteTestList(id: number): Observable<any> {
     return this.http.delete('api/test/' + id)
-      .subscribe(result => console.log(result));
+      .map((res:Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TestListService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

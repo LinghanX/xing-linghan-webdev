@@ -22,26 +22,39 @@ export class TestListComponent implements OnInit {
   }
 
   getTestLists(): void {
-    this.testListService.getTestLists()
+     this.testListService.getTestLists()
       .subscribe(
-        testLists => {
-          this.testLists = testLists as TestList[];
-          console.log(this.testLists);
-        },
-        err => {
-          console.log(err);
-        }
+        testLists => this.testLists = testLists as TestList[],
+        err => console.log(err)
       );
   }
 
   addTestList(newTestList: string): void {
-    console.log('This is triggered');
-    this.testListService.addTestList(newTestList);
-    this.getTestLists();
+    this.testListService.addTestList(newTestList)
+      .subscribe(
+        response => this.testLists.push(response as TestList),
+        error => console.log(error)
+      );
   }
 
-  deleteTestList(id: string): void {
-    this.testListService.deleteTestList(id);
-    this.getTestLists();
+  /**
+   *
+   * @param testList is a TestList, however here the type
+   *        is set `any` since we want to visit the `_id`
+   *        parameter
+   */
+  deleteTestList(testList: any): void {
+    this.testListService.deleteTestList(testList._id)
+      .subscribe(
+        response => {
+          if(response.ok){
+            let newTestLists = this.testLists.filter(
+              item => item.message != testList.message
+            );
+            this.testLists = newTestLists;
+          }
+        },
+        error => console.log(error.json())
+      );
   }
 }
