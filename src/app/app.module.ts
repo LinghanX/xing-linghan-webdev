@@ -6,22 +6,26 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TestListComponent } from './test-list/test-list.component';
-import { TestListService } from './test-list.service';
+import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: 'test-list', component: TestListComponent },
-  { path: 'home', redirectTo: '/' }
+  { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestListComponent
+    TestListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
