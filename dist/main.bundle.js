@@ -77,7 +77,6 @@ var TestListService = (function () {
         return this.http.post('api/test', body)
             .map(function (res) { return res.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || 'Server error'); });
-        // .subscribe(result => console.log(result));
     };
     TestListService.prototype.deleteTestList = function (id) {
         return this.http.delete('api/test/' + id)
@@ -189,7 +188,7 @@ exports = module.exports = __webpack_require__(22)(false);
 
 
 // module
-exports.push([module.i, "\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -238,7 +237,7 @@ module.exports = module.exports.toString();
 /***/ 161:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"container nav-container\">\n    <div class=\"row\">\n      <nav class=\"navbar navbar-fixed-top\">\n        <div class=\"container\">\n          <a class=\"navbar-brand\">Web Dev Summer 1</a>\n          <ul class=\"nav navbar-nav\" routerLinkActive=\"active\">\n            <li class=\"nav-item\">\n              <a routerLink=\"home\">Home</a>\n            </li>\n            <li class=\"nav-item\">\n              <a href=\"https://github.com/LinghanX/wedding-planner\">Project</a>\n            </li>\n            <li class=\"nav-item\">\n              <a routerLink=\"home\">Assignment</a>\n            </li>\n            <li class=\"nav-item\">\n              <a routerLink=\"test-list\">Test MongoDB</a>\n            </li>\n            <li class=\"nav-item\">\n              <a href=\"https://github.com/LinghanX/xing-linghan-webdev\">GitRepo</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n    <div class=\"row\">\n      <hr>\n    </div>\n  </div>\n\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <h1>\n        {{title}}\n      </h1>\n    </div>\n  </div>\n  <hr>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"container nav-container\">\n    <div class=\"row\">\n      <nav class=\"navbar navbar-fixed-top navbar-default\">\n        <div class=\"container\">\n          <a class=\"navbar-brand\">Web Dev Summer 1</a>\n          <ul class=\"nav navbar-nav\" routerLinkActive=\"active\">\n            <li class=\"nav-item\">\n              <a routerLink=\"home\">Home</a>\n            </li>\n            <li class=\"nav-item\">\n              <a href=\"https://github.com/LinghanX/wedding-planner\">Project</a>\n            </li>\n            <li class=\"nav-item\">\n              <a routerLink=\"home\">Assignment</a>\n            </li>\n            <li class=\"nav-item\">\n              <a routerLink=\"test-list\">Test MongoDB</a>\n            </li>\n            <li class=\"nav-item\">\n              <a href=\"https://github.com/LinghanX/xing-linghan-webdev\">GitRepo</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n  </div>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <h1>\n        {{title}}\n      </h1>\n    </div>\n  </div>\n  <hr>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 

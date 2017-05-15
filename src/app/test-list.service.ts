@@ -13,23 +13,21 @@ export class TestListService {
 
   getTestLists(): Observable<TestList[]> {
     return this.http.get('/api/test')
-      .map((res:Response) => res.json() as TestList[])
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+      .map((res: Response) => res.json() as TestList[])
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   addTestList(newTestList: string): Observable<TestList> {
     const body = { message: newTestList };
 
     return this.http.post('api/test', body)
-      .map((res:Response) => res.json())
+      .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-
-     // .subscribe(result => console.log(result));
   }
 
   deleteTestList(id: number): Observable<any> {
     return this.http.delete('api/test/' + id)
-      .map((res:Response) => res.json())
+      .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
