@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { TestListComponent } from './test-list/test-list.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdMenuModule, MdToolbarModule } from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'test-list', component: TestListComponent },
@@ -25,6 +26,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    MdToolbarModule,
+    MdButtonModule,
+    MdMenuModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],

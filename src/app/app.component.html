@@ -1,30 +1,30 @@
 <div class="container">
-  <div class="container nav-container">
-    <div class="row">
-      <nav class="navbar navbar-fixed-top navbar-default">
-        <div class="container">
-          <a class="navbar-brand">Web Dev Summer 1</a>
-          <ul class="nav navbar-nav" routerLinkActive="active">
-            <li class="nav-item">
-              <a routerLink="home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/LinghanX/wedding-planner">Project</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="home">Assignment</a>
-            </li>
-            <li class="nav-item">
-              <a routerLink="test-list">Test MongoDB</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/LinghanX/xing-linghan-webdev">GitRepo</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </div>
+  <md-toolbar color="primary">
+    <button md-button class="navbar-header" routerLink="home">Web Dev Summer 1</button>
+
+    <md-menu #appMenu="mdMenu">
+      <button md-menu-item href="https://github.com/LinghanX/wedding-planner">
+        Project
+      </button>
+      <button md-menu-item routerLink="home">
+        Assignment
+      </button>
+      <button md-menu-item routerLink="test-list">
+        Test MongoDB
+      </button>
+    </md-menu>
+
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+      <i class="material-icons">menu</i>
+    </button>
+
+    <span class="fill-space"></span>
+
+    <a md-button href="https://github.com/LinghanX/xing-linghan-webdev">
+      <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+    </a>
+  </md-toolbar>
+
 
   <div class="container">
     <div class="row">
