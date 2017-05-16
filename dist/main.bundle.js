@@ -43,8 +43,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(172),
-        styles: [__webpack_require__(168)]
+        template: __webpack_require__(173),
+        styles: [__webpack_require__(169)]
     })
 ], AppComponent);
 
@@ -104,8 +104,10 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_9__angular_material__["a" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_9__angular_material__["c" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
         providers: [],
@@ -143,8 +145,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
         selector: 'app-home',
-        template: __webpack_require__(173),
-        styles: [__webpack_require__(169)]
+        template: __webpack_require__(174),
+        styles: [__webpack_require__(170)]
     }),
     __metadata("design:paramtypes", [])
 ], HomeComponent);
@@ -268,8 +270,8 @@ var TestListComponent = (function () {
 TestListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* Component */])({
         selector: 'app-test-list',
-        template: __webpack_require__(174),
-        styles: [__webpack_require__(170)],
+        template: __webpack_require__(175),
+        styles: [__webpack_require__(171)],
         providers: [__WEBPACK_IMPORTED_MODULE_1__test_list_service__["a" /* TestListService */]]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__test_list_service__["a" /* TestListService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__test_list_service__["a" /* TestListService */]) === "function" && _a || Object])
@@ -297,33 +299,15 @@ var environment = {
 
 /***/ }),
 
-/***/ 168:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(24)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 169:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)(false);
+exports = module.exports = __webpack_require__(18)(false);
 // imports
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".fill-space {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n}\n", ""]);
 
 // exports
 
@@ -336,7 +320,7 @@ module.exports = module.exports.toString();
 /***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(24)(false);
+exports = module.exports = __webpack_require__(18)(false);
 // imports
 
 
@@ -351,28 +335,46 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 172:
-/***/ (function(module, exports) {
+/***/ 171:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div class=\"container\">\n\n  <md-toolbar color=\"primary\">\n    <a class=\"navbar-header\">Web Dev Summer 1</a>\n    <ul class=\"nav navbar-nav\" routerLinkActive=\"active\">\n      <li class=\"nav-item\">\n        <a routerLink=\"home\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a href=\"https://github.com/LinghanX/wedding-planner\">Project</a>\n      </li>\n      <li class=\"nav-item\">\n        <a routerLink=\"home\">Assignment</a>\n      </li>\n      <li class=\"nav-item\">\n        <a routerLink=\"test-list\">Test MongoDB</a>\n      </li>\n      <li class=\"nav-item\">\n        <a href=\"https://github.com/LinghanX/xing-linghan-webdev\">GitRepo</a>\n      </li>\n    </ul>\n  </md-toolbar>\n\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <h1>\n        {{title}}\n      </h1>\n    </div>\n  </div>\n  <hr>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
+exports = module.exports = __webpack_require__(18)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 173:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Project overview</h1>\n\n<p>This is a course repo for CS5610 Web development, session Summer1 2017. </p>\n\n<p>The repo will include all the submission information as well as part of</p>\n\n<p>my codebase. </p>\n\n<h1>About author: Linghan Xing</h1>\n\n<p>I am a computer science master candidate in Northeastern University. </p>\n\n<p>You can find me <a href=\"http://www.linghanxing.com\">here</a>. </p>\n\n<h1>Course info</h1>\n\n<ol>\n  <li>Web development project: <a href=\"https://linghan-xing-web-2017summer1.herokuapp.com\">URL</a></li>\n  <li>Link to my project <a href=\"https://ancient-everglades-78085.herokuapp.com/users\">URL</a>.</li>\n  <li>Link to my assignments (TBD).</li>\n</ol>\n\n"
+module.exports = "<div class=\"container\">\n  <md-toolbar color=\"primary\">\n    <button md-button class=\"navbar-header\" routerLink=\"home\">Web Dev Summer 1</button>\n\n    <md-menu #appMenu=\"mdMenu\">\n      <button md-menu-item href=\"https://github.com/LinghanX/wedding-planner\">\n        Project\n      </button>\n      <button md-menu-item routerLink=\"home\">\n        Assignment\n      </button>\n      <button md-menu-item routerLink=\"test-list\">\n        Test MongoDB\n      </button>\n    </md-menu>\n\n    <button md-icon-button [mdMenuTriggerFor]=\"appMenu\">\n      <i class=\"material-icons\">menu</i>\n    </button>\n\n    <span class=\"fill-space\"></span>\n\n    <a md-button href=\"https://github.com/LinghanX/xing-linghan-webdev\">\n      <i class=\"fa fa-github fa-2x\" aria-hidden=\"true\"></i>\n    </a>\n  </md-toolbar>\n\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <h1>\n        {{title}}\n      </h1>\n    </div>\n  </div>\n  <hr>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 174:
 /***/ (function(module, exports) {
 
+module.exports = "<h1>Project overview</h1>\n\n<p>This is a course repo for CS5610 Web development, session Summer1 2017. </p>\n\n<p>The repo will include all the submission information as well as part of</p>\n\n<p>my codebase. </p>\n\n<h1>About author: Linghan Xing</h1>\n\n<p>I am a computer science master candidate in Northeastern University. </p>\n\n<p>You can find me <a href=\"http://www.linghanxing.com\">here</a>. </p>\n\n<h1>Course info</h1>\n\n<ol>\n  <li>Web development project: <a href=\"https://linghan-xing-web-2017summer1.herokuapp.com\">URL</a></li>\n  <li>Link to my project <a href=\"https://ancient-everglades-78085.herokuapp.com/users\">URL</a>.</li>\n  <li>Link to my assignments (TBD).</li>\n</ol>\n\n"
+
+/***/ }),
+
+/***/ 175:
+/***/ (function(module, exports) {
+
 module.exports = "<input #newTestList (keyup.enter)=\"addTestList(newTestList.value)\">\n<button (click)=\"addTestList(newTestList.value)\">Add test list</button>\n\n<ul>\n  <li *ngFor=\"let testList of testLists\">\n    {{ testList.message }}\n    <br/>\n    <button (click)=\"deleteTestList(testList)\">Delete</button>\n  </li>\n</ul>\n"
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(100);
@@ -394,5 +396,5 @@ webpackEmptyContext.id = 99;
 
 /***/ })
 
-},[226]);
+},[227]);
 //# sourceMappingURL=main.bundle.js.map
