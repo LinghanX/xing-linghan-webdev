@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <md-toolbar color="primary">
     <button md-button class="navbar-header" routerLink="home">Web Dev Summer 1</button>
 
@@ -6,8 +6,8 @@
       <button md-menu-item href="https://github.com/LinghanX/wedding-planner">
         Project
       </button>
-      <button md-menu-item routerLink="home">
-        Assignment
+      <button md-menu-item routerLink="assignments">
+        Assignments
       </button>
       <button md-menu-item routerLink="test-list">
         Test MongoDB
@@ -25,17 +25,7 @@
     </a>
   </md-toolbar>
 
-
-  <div class="container">
-    <div class="row">
-      <h1>
-        {{title}}
-      </h1>
-    </div>
-  </div>
-  <hr>
-
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <router-outlet></router-outlet>
     </div>
