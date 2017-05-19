@@ -50,3 +50,14 @@ body {
     padding: 5px;
     border-bottom-left-radius: 10px;
 }
+
+.centered-form {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.align-to-right {
+    float: right;
+    margin-right: 40px;
+}
