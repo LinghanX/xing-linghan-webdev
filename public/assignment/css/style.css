@@ -14,8 +14,13 @@ body {
 }
 
 .navbar-default {
-    background-color: darkblue;
-    border-color: darkblue;
+    background-color: #28798b;
+    border-color: #28798b;
+}
+
+.navbar-light {
+    background-color: #ece9de;
+    border-color: #ece9de;
 }
 
 .navbar-default .navbar-brand {
@@ -60,4 +65,9 @@ body {
 .align-to-right {
     float: right;
     margin-right: 40px;
+}
+
+.edit-items {
+    float: left;
+    margin: 0 30px 0 30px;
 }
