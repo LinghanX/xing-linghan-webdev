@@ -29,13 +29,15 @@
                     controller: 'ProfileController as model'
                 })
                 .when('/user/:userId/website', {
-                    templateUrl: './views/website/website-list.view.client.html'
+                    templateUrl: './views/website/templates/website-list.view.client.html',
+                    controller: 'WebsiteListController as model'
                 })
                 .when('/user/:userId/website/new', {
-                    templateUrl: './views/website/website-new.view.client.html'
+                    templateUrl: './views/website/templates/website-new.view.client.html'
                 })
                 .when('/user/:userId/website/:wid', {
-                    templateUrl: './views/website/website-edit.view.client.html'
+                    templateUrl: './views/website/templates/website-edit.view.client.html',
+                    controller: 'WebsiteEditController as model'
                 })
                 .when('/user/:userId/website/:wid/page', {
                     templateUrl: './views/page/page-list.view.client.html'
