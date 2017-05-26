@@ -21,10 +21,11 @@
         return api;
 
         function createUser(user) {
-            var newUsers = users.push(user);
-            users = newUsers;
+            user._id = (new Date()).getTime() + "";
+            user.created = new Date();
+            users.push(user);
 
-            return users;
+            return user;
         }
 
         function findUserByUsername(username) {
@@ -84,6 +85,7 @@
         }
 
         function findUserByCredentials(username, password) {
+
             for(var u in users) {
                 var user = users[u];
 
@@ -91,8 +93,8 @@
                     return user;
                 }
 
-                return null;
             }
+            return null;
         }
     }
 })();
