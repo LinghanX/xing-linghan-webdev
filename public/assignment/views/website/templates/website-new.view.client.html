@@ -8,7 +8,7 @@
                 New Website
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.view.client.html" class="navbar-link">
+                <a ng-click="model.createWebsite(name, description)" class="navbar-link">
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </a>
             </p>
@@ -17,75 +17,18 @@
 </nav>
 
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-xs-4 hidden-xs">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <div class="row">
+                    <div ng-repeat="website in model.websites" class="row">
                         <div class="col-8 edit-items" >
-                            <a href="../../page/page-list.view.client.html">
-                                Address book app
+                            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                                {{ website.name }}
                             </a>
                         </div>
                         <div class="col-4 edit-items pull-right" >
-                            <a href="website-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-8 edit-items" >
-                            <a href="../../page/page-list.view.client.html">
-                                Personal blogger
-                            </a>
-                        </div>
-                        <div class="col-4 edit-items pull-right" >
-                            <a href="website-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-8 edit-items">
-                            <a href="../../page/page-list.view.client.html">
-                                what to eat app
-                            </a>
-                        </div>
-                        <div class="col-4 edit-items pull-right" >
-                            <a href="website-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-8 edit-items">
-                            <a href="../../page/page-list.view.client.html">
-                                path finder
-                            </a>
-                        </div>
-                        <div class="col-4 edit-items pull-right">
-                            <a href="website-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-8 edit-items">
-                            <a href="../../page/page-list.view.client.html">
-                                Address book app
-                            </a>
-                        </div>
-                        <div class="col-4 edit-items pull-right">
-                            <a href="website-edit.view.client.html">
+                            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -97,12 +40,14 @@
 
             <label for="name">Name</label>
             <input class="form-control"
+                   ng-model="name"
                    placeholder="facebook"
                    value="Blogger"
                    id="name"/>
 
             <label for="description">Description</label>
             <textarea id="description"
+                      ng-model="description"
                       rows="5"
                       placeholder="So big it is its own country"
                       class="form-control">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </textarea>

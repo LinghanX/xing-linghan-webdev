@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="WebAppMaker">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Linghan Xing">
 
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Web App AngularJS</title>
+
+    <!-- AngularJS -->
     <!--To be changed to CDN-->
     <script src="../../node_modules/angular/angular.min.js"></script>
     <script src="../../node_modules/angular-route/angular-route.min.js"></script>
+
+    <!--Angular App-->
     <script src="app.js"></script>
     <script src="config.js"></script>
 
@@ -16,25 +27,24 @@
     <!--Website controllers-->
     <script src="views/website/controllers/website-list.controller.client.js"></script>
     <script src="views/website/controllers/website-edit.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+
+    <!--Page controllers-->
+    <script src="views/page/controllers/page-list.controller.client.js"></script>
 
     <!--services-->
     <script src="services/user.service.client.js"></script>
     <script src="services/website.service.client.js"></script>
+    <script src="services/page.service.client.js"></script>
 
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="Linghan Xing">
-
-
-    <title>Web App AngularJS</title>
-
+    <!--Boostrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
+
+    <!--Font awesome icons-->
+    <script src="https://use.fontawesome.com/cf2498cc5f.js"></script>
 </head>
 
 <body>
