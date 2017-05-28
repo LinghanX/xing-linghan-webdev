@@ -45,10 +45,12 @@
                     controller: 'PageListController as model'
                 })
                 .when('/user/:userId/website/:wid/page/new', {
-                    templateUrl: './views/page/templates/page-new.view.client.html'
+                    templateUrl: './views/page/templates/page-new.view.client.html',
+                    controller: 'PageNewController as model'
                 })
                 .when('/user/:userId/website/:wid/page/:pid', {
-                    templateUrl: './views/page/templates/page-edit.view.client.html'
+                    templateUrl: './views/page/templates/page-edit.view.client.html',
+                    controller: 'PageEditController as model'
                 })
                 .when('/user/:userId/website/:wid/page/:pid/widget', {
                     templateUrl: './views/widget/templates/widget-list.view.client.html'

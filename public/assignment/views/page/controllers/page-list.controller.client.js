@@ -8,7 +8,9 @@
 
         function init() {
             model.websiteId = $routeParams['wid'];
+            model.userId = $routeParams['userId'];
             model.pages = PageService.findPagesByWebsiteId(model.websiteId);
         }
+        init();
     }
 })();

@@ -20,15 +20,20 @@
 
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
+            page.createdAt = (new Date()).getTime() + "";
+            page.lastVisited = (new Date()).getTime() + "";
             pages.push(page);
         }
 
         function findPagesByWebsiteId(websiteId) {
+            var candidates = [];
             for(var p in pages){
                 if(pages[p].websiteId === websiteId){
-                    return pages[p];
+                    candidates.push(pages[p]);
                 }
             }
+
+            return candidates;
         }
 
         function findPageById(pageId) {
