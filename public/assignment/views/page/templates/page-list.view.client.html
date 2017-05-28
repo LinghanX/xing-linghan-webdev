@@ -42,10 +42,10 @@
                     </a>
                 </div>
                 <div class="col-lg-3 visible-lg">
-                    {{ page.createdAt }}
+                    {{ page.createdAt | date }}
                 </div>
                 <div class="col-md-3 hidden-sm hidden-xs">
-                    {{ page.lastVisited }}
+                    {{ page.lastVisited | date }}
                 </div>
                 <div class="col-xs-1">
                     <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">

@@ -18,67 +18,12 @@
 
 <div class="container-fluid">
     <ul class="list-group">
-        <li class="list-group-item">
+        <li ng-repeat="widgetType in model.widgetTypes" class="list-group-item">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <a href="widget-heading.view.client.html">
-                            Header
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="widget-image.view.client.html">
-                            Image
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="widget-youtube.view.client.html">
-                            Youtube
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="">
-                            Text Input
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="">
-                            Link
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <a href="">
-                            Button
+                        <a ng-click="model.createWidget(widgetType)">
+                            {{ widgetType }}
                         </a>
                     </div>
                 </div>
