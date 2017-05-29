@@ -1,14 +1,14 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="website-list.view.client.html">
+            <a class="navbar-brand" href="#!/user/{{model.userId}}">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 Edit Website
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.view.client.html" class="navbar-link">
+                <a ng-click="model.updateWebsite()" class="navbar-link">
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </a>
             </p>
@@ -57,13 +57,4 @@
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html">
-                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
-</nav>
-
+<div ng-include="'./views/components/profile-footer-dark.view.client.html'"></div>

@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="widget-list.view.client.html">
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" >
                 Choose Widget
             </a>
             <p class="navbar-text pull-right">
@@ -32,13 +32,4 @@
     </ul>
 </div>
 
-<nav class="navbar navbar-light navbar-fixed-bottom">
-    <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a href="../../user/templates/profile.view.client.html">
-                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
-</nav>
-
+<div ng-include="'./views/components/profile-footer.view.client.html'"></div>

@@ -17,9 +17,15 @@
             model.user = UserService.findUserById(model.userId);
             model.websites = WebsiteService.findWebsitesByUser(model.userId);
             model.website = WebsiteService.findWebsiteById(model.websiteId);
+            model.updateWebsite = updateWebsite;
         }
 
         init();
+
+        function updateWebsite() {
+            WebsiteService.updateWebsite(model.websiteId, model.website);
+            $location.url('/user/' + model.userId + '/website');
+        }
 
         function deleteWebsite(){
             WebsiteService.deleteWebsite(model.websiteId);
