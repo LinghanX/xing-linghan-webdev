@@ -25,16 +25,18 @@
 
         function createWidget(widgetType) {
             var newWidget = {
-                "_id": (new Date()).getTime() + "",
                 "widgetType": widgetType.toUpperCase()
             };
 
-            WidgetService.createWidget(model.pageId, newWidget);
-            $location.url(
-                '/user/' + model.userId
-                + '/website/' + model.websiteId
-                + '/page/' + model.pageId
-                + '/widget/' + newWidget._id);
+            WidgetService.createWidget(model.pageId, newWidget)
+                .then(function(response) {
+                    newWidget._id = response._id;
+                    $location.url(
+                        '/user/' + model.userId
+                        + '/website/' + model.websiteId
+                        + '/page/' + model.pageId
+                        + '/widget/' + newWidget._id);
+                });
         }
     }
 })();

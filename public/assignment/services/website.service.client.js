@@ -1,17 +1,7 @@
 (function(){
     angular.module('WebAppMaker').factory('WebsiteService', WebsiteService);
 
-    function WebsiteService() {
-        var websites = [
-            { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
-            { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
-            { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem" },
-            { "_id": "890", "name": "Go",          "developerId": "123", "description": "Lorem" },
-            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem" },
-            { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
-            { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
-        ];
-
+    function WebsiteService($http) {
         var api = {
             createWebsite: createWebsite,
             findWebsitesByUser: findWebsitesByUser,
@@ -23,46 +13,48 @@
         return api;
 
         function createWebsite(userId, website) {
-            website.developerId = userId;
-            website._id = (new Date()).getTime() + "";
-            websites.push(website);
-            return website;
+            const url = '/api/assignment/user/' + userId + '/website';
+
+            return $http.post(url, website)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findWebsitesByUser(userId) {
-            var candidates = [];
+            const url = '/api/assignment/user/' + userId + '/website';
 
-            for(var w in websites){
-                if(websites[w].developerId === userId){
-                    candidates.push(websites[w]);
-                }
-            }
-
-            return candidates;
+            return $http.get(url)
+                .then(function(response) {
+                    return response.data;
+                });
         }
 
         function findWebsiteById(websiteId) {
-            for(var w in websites){
-                if(websites[w]._id === websiteId){
-                    return websites[w];
-                }
-            }
+            const url = '/api/assignment/website/' + websiteId;
+
+            return $http.get(url)
+                .then(function(response) {
+                    return response.data;
+                });
         }
 
         function updateWebsite(websiteId, website) {
-            for(var w in websites){
-                if(websites[w]._id === websiteId){
-                    websites[w] = website;
-                }
-            }
+            const url = '/api/assignment/website/' + websiteId;
+
+            return $http.put(url, website)
+                .then(function(response) {
+                    return response.data;
+                });
         }
 
         function deleteWebsite(websiteId) {
-            for(var w in websites){
-                if(websites[w]._id === websiteId){
-                    websites.splice(w, 1);
-                }
-            }
+            const url = '/api/assignment/website/' + websiteId;
+
+            return $http.delete(url)
+                .then(function(response) {
+                    return response.data;
+                });
         }
     }
 })();

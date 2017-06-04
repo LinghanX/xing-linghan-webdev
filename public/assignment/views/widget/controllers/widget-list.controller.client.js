@@ -10,7 +10,10 @@
             model.userId = $routeParams['userId'];
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
-            model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
+            WidgetService.findWidgetsByPageId(model.pageId)
+                .then(function(response) {
+                    model.widgets = response;
+                });
             model.widgetUrl = widgetUrl;
             model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
             model.trust = trust;

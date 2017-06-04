@@ -17,13 +17,11 @@
                 password: password
             };
 
-            var newUser = UserService.createUser(user);
+            UserService.createUser(user)
+                .then(function(response){
+                    $location.url('/user/' + response._id);
+                });
 
-            if(newUser !== null && newUser !== undefined){
-                $location.url('/user/' + newUser._id);
-            } else {
-                console.log('Error: failed making new user');
-            }
         }
     }
 })();

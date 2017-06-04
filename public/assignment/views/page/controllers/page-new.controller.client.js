@@ -18,10 +18,11 @@
                 "name": name,
                 "description": description
             };
-            PageService.createPage(model.websiteId, page);
-
-            $location.url('/user/' + model.userId + '/website/'
-                + model.websiteId + '/page');
+            PageService.createPage(model.websiteId, page)
+                .then(function(response) {
+                    $location.url('/user/' + model.userId + '/website/'
+                        + model.websiteId + '/page');
+                });
         }
     }
 })();

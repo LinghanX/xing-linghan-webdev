@@ -8,7 +8,10 @@
 
         function init() {
             model.userId = $routeParams['userId'];
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            WebsiteService.findWebsitesByUser(model.userId)
+                .then(function(response){
+                    model.websites = response;
+                });
             model.createWebsite = createWebsite;
         }
         init();
@@ -24,10 +27,11 @@
                 description: description
             };
 
-            WebsiteService.createWebsite(model.userId, newWebsite);
+            WebsiteService.createWebsite(model.userId, newWebsite)
+                .then(function(response){
+                    console.log(response);
+                });
             $location.url('user/' + model.userId + '/website');
         }
-
-
     }
 })();
