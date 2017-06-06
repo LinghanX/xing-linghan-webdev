@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // configure a public directory to host static content
 app.use(app.express.static(__dirname + '/public'));
 app.use('/node_modules', app.express.static(__dirname + '/node_modules'));
+app.use('/uploads', app.express.static('assignment/services/uploads'));
 
 require ("./assignment/app");
 var port = process.env.PORT || 3000;

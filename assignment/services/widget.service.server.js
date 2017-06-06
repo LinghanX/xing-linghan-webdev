@@ -1,5 +1,7 @@
 const app = require('../../express');
 const Helper = require('../helpers/generateId');
+const multer = require('multer');
+const upload = multer({ dest: __dirname + '/uploads' });
 
 const widgets = [
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO", "index": 1},
@@ -13,12 +15,46 @@ const widgets = [
     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>", "index": 7}
 ];
 
+app.post('/api/upload', upload.single('myFile'), uploadImage);
 app.post('/api/assignment/page/:pageId/widget/order', reOrderWidget);
 app.post('/api/assignment/page/:pageId/widget', createWidget);
 app.get('/api/assignment/page/:pageId/widget', findAllWidgetsForPage);
 app.get('/api/assignment/widget/:widgetId', findWidgetById);
 app.put('/api/assignment/widget/:widgetId', updateWidget);
 app.delete('/api/assignment/widget/:widgetId', deleteWidget);
+
+function uploadImage(req, res) {
+
+    var widgetId      = req.body.widgetId;
+    var width         = req.body.width;
+    var myFile        = req.file;
+
+    var userId = req.body.userId;
+    var websiteId = req.body.websiteId;
+    var pageId = req.body.pageId;
+
+    var originalname  = myFile.originalname; // file name on user's computer
+    var filename      = myFile.filename;     // new file name in upload folder
+    var path          = myFile.path;         // full path of uploaded file
+    var destination   = myFile.destination;  // folder where file is saved to
+    var size          = myFile.size;
+    var mimetype      = myFile.mimetype;
+
+    widget = getWidgetById(widgetId);
+    widget.url = '/uploads/'+filename;
+
+    var callbackUrl   = "/assignment/index.html#!/user/"+userId+"/website/"+websiteId + "/page";
+
+    res.redirect(callbackUrl);
+}
+
+function getWidgetById(widgetId){
+    for(var i in widgets){
+        if(widgets[i]._id === widgetId){
+            return widgets[i];
+        }
+    }
+}
 
 function reOrderWidget(req, res){
     const pageId = req.params['pageId'];
