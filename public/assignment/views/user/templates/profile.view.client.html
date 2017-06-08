@@ -5,7 +5,7 @@
                 Profile
             </a>
             <p class="navbar-text pull-right">
-                <a href="" class="navbar-link">
+                <a ng-click="model.updateUser()" class="navbar-link">
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </a>
             </p>
@@ -13,6 +13,13 @@
     </div>
 </nav>
 <div class="container-fluid">
+    <div ng-show="model.error" class="alert alert-danger">
+        {{ model.error }}
+    </div>
+    <div ng-show="model.message" class="alert alert-info">
+        {{ model.message }}
+    </div>
+
     <form class="centered-form">
         <div class="form-group">
             <label for="username">Username</label>
@@ -26,6 +33,7 @@
             <label for="email">Email address</label>
             <input type="email"
                    class="form-control"
+                   ng-model="model.user.email"
                    id="email"
                    placeholder="alice@wonderland.com">
         </div>
@@ -48,6 +56,8 @@
     </form>
 
     <div class="centered-form">
+        <a class="btn btn-success btn-block"
+           ng-click="model.updateUser()">Update Profile</a>
         <a class="btn btn-primary btn-block"
            href="#!/user/{{model.userId}}/website">Websites</a>
         <a class="btn btn-danger  btn-block"
