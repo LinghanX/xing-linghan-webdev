@@ -41,7 +41,7 @@
         }
 
         function deleteWebsite(){
-            WebsiteService.deleteWebsite(model.websiteId)
+            WebsiteService.deleteWebsite(model.websiteId, model.userId)
                 .then(function(response){
                     console.log(response.data);
                 });

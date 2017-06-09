@@ -48,8 +48,9 @@
                 });
         }
 
-        function deleteWebsite(websiteId) {
-            const url = '/api/assignment/website/' + websiteId;
+        function deleteWebsite(websiteId, userId) {
+            const url =
+                '/api/assignment/user/' + userId + '/website/' + websiteId;
 
             return $http.delete(url)
                 .then(function(response) {
