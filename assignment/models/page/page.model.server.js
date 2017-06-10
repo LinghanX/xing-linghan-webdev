@@ -1,14 +1,44 @@
 const mongoose = require("mongoose");
 const pageSchema = require("./page.schema.server");
 const pageModel = mongoose.model("PageModel", pageSchema);
+const widgetModel = require("../widget/widget.model.server");
 
 pageModel.createPage = createPage;
 pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePageForWebsite = deletePageForWebsite;
+pageModel.addWidget = addWidget;
+pageModel.deleteWidget = deleteWidget;
+pageModel.reorderWidgets = reorderWidgets;
 
 module.exports = pageModel;
+
+function reorderWidgets(pageId, newOrder) {
+    return pageModel.findById(pageId)
+        .then(function(page) {
+            page.widgets = newOrder;
+            return page.save();
+        });
+}
+
+function deleteWidget(pageId, widgetId) {
+    return pageModel.findById(pageId)
+        .then(function(page) {
+            const index = page.widgets.indexOf(widgetId);
+            page.widgets.splice(index, 1);
+            return page.save();
+        })
+}
+
+function addWidget(pageId, widgetId) {
+    return pageModel.findById(pageId)
+        .then(function(response) {
+            response.widgets.push(widgetId);
+            response.save();
+            return widgetModel.findById(widgetId);
+        })
+}
 
 function createPage(websiteId, page) {
     page._website = websiteId;

@@ -32,7 +32,7 @@
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(model.widgetId)
+            WidgetService.deleteWidget(model.pageId, model.widgetId)
                 .then(function(response) {
                     $location.url(
                         '/user/' + model.userId

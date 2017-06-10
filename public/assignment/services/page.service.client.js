@@ -17,7 +17,7 @@
 
             return $http.post(url, page)
                 .then(function(response) {
-                    return response.data;
+                    return response;
                 });
         }
 
@@ -47,12 +47,12 @@
                 });
         }
 
-        function deletePage(pageId) {
-            const url = '/api/assignment/page/' + pageId;
+        function deletePage(pageId, websiteId) {
+            const url = '/api/assignment/website/' + websiteId + '/page/' + pageId;
 
             return $http.delete(url)
                 .then(function(response) {
-                    return response.data;
+                    return response;
                 });
         }
     }

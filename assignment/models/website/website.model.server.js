@@ -16,7 +16,7 @@ module.exports = websiteModel;
 
 function addPage(websiteId, pageId) {
     return websiteModel
-        .findWebsiteById(websiteId)
+        .findById(websiteId)
         .then(function(website) {
             website.pages.push(pageId);
             return website.save();
@@ -24,7 +24,7 @@ function addPage(websiteId, pageId) {
 }
 
 function deletePage(websiteId, pageId) {
-    return websiteModel.findWebsiteById(websiteId)
+    return websiteModel.findById(websiteId)
         .then(function(website) {
             const index = website.pages.indexOf(pageId);
             website.pages.splice(index, 1);

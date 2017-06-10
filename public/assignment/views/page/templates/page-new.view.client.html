@@ -8,7 +8,7 @@
                 Fixed Top
             </a>
             <p class="navbar-text pull-right">
-                <a ng-click="model.createPage(name, description)" class="navbar-link">
+                <a ng-click="model.createPage()" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </p>
@@ -20,14 +20,14 @@
     <div class="row">
         <label for="name">Name</label>
         <input class="form-control"
-               ng-model="name"
+               ng-model="model.name"
                placeholder="facebook"
                value="Blogger"
                id="name"/>
 
         <label for="description">Description</label>
         <textarea id="description"
-                  ng-model="description"
+                  ng-model="model.description"
                   rows="5"
                   placeholder="So big it is its own country"
                   class="form-control">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </textarea>

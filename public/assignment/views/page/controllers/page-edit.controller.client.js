@@ -20,22 +20,17 @@
         init();
 
         function deletePage(){
-            PageService.deletePage(model.pageId)
-                .then(function(response) {
-                    $location.url(
-                        '/user/' + model.userId + '/website/' + model.websiteId
-                        + '/page');
-                });
+            PageService.deletePage(model.pageId, model.websiteId);
+            $location.url(
+                '/user/' + model.userId + '/website/' + model.websiteId
+                + '/page/');
         }
 
         function updatePage(){
-            model.page.lastVisited = (new Date()).getTime() + "";
-            PageService.updatePage(model.pageId, model.page)
-                .then(function(response) {
-                    $location.url(
-                        '/user/' + model.userId + '/website/' + model.websiteId
-                        + '/page');
-                });
+            PageService.updatePage(model.pageId, model.page);
+            $location.url(
+                '/user/' + model.userId + '/website/' + model.websiteId
+                + '/page');
         }
     }
 })();

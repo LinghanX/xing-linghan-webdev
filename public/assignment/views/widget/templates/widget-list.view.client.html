@@ -17,8 +17,8 @@
 </nav>
 
 <sortable pid="model.pageId" class="container-fluid">
-    <div ng-repeat="widget in model.widgets | orderBy: 'index'">
-        <div id="{{widget._id}}" class="widget" ng-switch="widget.widgetType">
+    <div ng-repeat="widget in model.widgets">
+        <div id="{{widget._id}}" class="widget" ng-switch="widget.type">
             <div ng-switch-when="HEADING">
                 <div ng-include="'./views/widget/templates/widget-heading.view.client.html'"></div>
             </div>

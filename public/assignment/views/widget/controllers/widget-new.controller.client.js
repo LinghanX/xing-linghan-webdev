@@ -10,7 +10,13 @@
             model.userId = $routeParams['userId'];
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
-            model.widgetId = (new Date()).getTime() + "";
+
+            const widget = {};
+            WidgetService.createWidget(model.pageId, widget)
+                .then(function(response) {
+                    model.widget = response;
+                });
+
             model.widgetTypes = [
                 "Heading",
                 "Image",
@@ -19,24 +25,19 @@
                 "Link",
                 "Button"
             ];
-            model.createWidget = createWidget;
+            model.updateWidget = updateWidget;
         }
         init();
 
-        function createWidget(widgetType) {
-            var newWidget = {
-                "widgetType": widgetType.toUpperCase()
-            };
+        function updateWidget(widgetType) {
+            model.widget.type = widgetType.toUpperCase();
 
-            WidgetService.createWidget(model.pageId, newWidget)
-                .then(function(response) {
-                    newWidget._id = response._id;
-                    $location.url(
-                        '/user/' + model.userId
-                        + '/website/' + model.websiteId
-                        + '/page/' + model.pageId
-                        + '/widget/' + newWidget._id);
-                });
+            WidgetService.updateWidget(model.pageId, model.widget);
+            $location.url(
+                '/user/' + model.userId
+                + '/website/' + model.websiteId
+                + '/page/' + model.pageId
+                + '/widget/' + model.widget._id);
         }
     }
 })();
