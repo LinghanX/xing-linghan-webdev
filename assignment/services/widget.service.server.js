@@ -82,7 +82,7 @@ function findWidgetById(req, res) {
     widgetModel.findWidgetById(widgetId)
         .then(function(widget) {
             res.json(widget);
-        })
+        });
 }
 
 function createWidget(req, res){

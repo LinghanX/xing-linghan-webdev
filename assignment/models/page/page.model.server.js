@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const pageSchema = require("./page.schema.server");
 const pageModel = mongoose.model("PageModel", pageSchema);
-const widgetModel = require("../widget/widget.model.server");
+const widgetSchema = require("../widget/widget.schema.server");
+const widgetModel = mongoose.model("WidgetModel", widgetSchema);
 
 pageModel.createPage = createPage;
 pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
@@ -36,6 +37,7 @@ function addWidget(pageId, widgetId) {
         .then(function(response) {
             response.widgets.push(widgetId);
             response.save();
+
             return widgetModel.findById(widgetId);
         })
 }

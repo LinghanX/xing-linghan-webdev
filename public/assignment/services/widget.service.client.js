@@ -43,6 +43,8 @@
             return $http.put(url, widget)
                 .then(function(response) {
                     return response.data;
+                }, function(err) {
+                    console.log(err);
                 });
         }
 
@@ -52,6 +54,8 @@
             return $http.delete(url)
                 .then(function(response) {
                     return response.data;
+                }, function(err) {
+                    console.log(err);
                 });
         }
     }
