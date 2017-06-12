@@ -20,6 +20,7 @@
                 "Heading",
                 "Image",
                 "Youtube",
+                "HTML",
                 "Text Input",
                 "Link",
                 "Button"
@@ -30,6 +31,10 @@
 
         function updateWidget(widgetType) {
             model.widget.type = widgetType.toUpperCase();
+
+            if(widgetType === "Text Input") {
+                model.widget.type = "TEXT";
+            }
 
             WidgetService.updateWidget(model.widget._id, model.widget)
                 .then(function(response) {

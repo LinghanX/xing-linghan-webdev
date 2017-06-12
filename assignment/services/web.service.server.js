@@ -1,5 +1,4 @@
 const app = require('../../express');
-const Helper = require('../helpers/generateId');
 const websiteModel = require("../models/website/website.model.server");
 
 app.post('/api/assignment/user/:userId/website', createWebsite);

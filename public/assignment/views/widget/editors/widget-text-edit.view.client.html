@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a class="navbar-brand">
+                Heading Editor
+            </a>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.updateWidget()" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    Text
+    <input ng-model="model.widget.text" class="form-control"/>
+    Rows
+    <input ng-model="model.widget.rows" class="form-control" type="number"/>
+    Placeholder
+    <input ng-model="model.widget.placeholder" class="form-control"/>
+    Formatted
+    <input ng-model="model.widget.formatted" type="checkbox"/>
+
+    <a ng-click="model.deleteWidget()" class="btn btn-block btn-danger">Delete</a>
+</div>
+
+<div ng-include="'./views/components/profile-footer.view.client.html'"></div>
