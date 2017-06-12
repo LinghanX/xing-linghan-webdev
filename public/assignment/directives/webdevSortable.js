@@ -9,7 +9,7 @@
                     const elemOrder = [];
                     const widgetsElem = $('.widget').toArray();
                     widgetsElem.forEach(function(item){
-                        elemOrder.push(item._id);
+                        elemOrder.push(item.id);
                     });
 
                     $.post(

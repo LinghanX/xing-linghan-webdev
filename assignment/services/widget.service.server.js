@@ -54,11 +54,20 @@ function getWidgetById(widgetId){
 function reOrderWidget(req, res){
     const pageId = req.params['pageId'];
     const newOrder = req.body.elems;
+    const num = newOrder.length;
+    var index = 0;
 
-    pageModel.reorderWidgets(pageId, newOrder)
-        .then(function(newPage) {
-            res.json(newPage);
-        });
+    for(var i = 0; i < num; i++) {
+        const widgetId = newOrder[i];
+        widgetModel.findWidgetById(widgetId)
+            .then(function(widget){
+                widget.index = index;
+                index++;
+                widget.save();
+            });
+    }
+
+    res.sendStatus(200);
 }
 
 function deleteWidgetFromPage(req, res) {
