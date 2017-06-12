@@ -16,11 +16,11 @@ app.delete('/api/assignment/page/:pageId/widget/:widgetId', deleteWidgetFromPage
 function uploadImage(req, res) {
 
     var widgetId      = req.body.widgetId;
-    var width         = req.body.width;
+    // var width         = req.body.width;
+    var userId        = req.body.userId;
+    var websiteId     = req.body.websiteId;
     var myFile        = req.file;
 
-    var userId = req.body.userId;
-    var websiteId = req.body.websiteId;
     var pageId = req.body.pageId;
 
     var originalname  = myFile.originalname; // file name on user's computer
@@ -30,8 +30,14 @@ function uploadImage(req, res) {
     var size          = myFile.size;
     var mimetype      = myFile.mimetype;
 
-    widget = getWidgetById(widgetId);
-    widget.url = '/uploads/'+filename;
+    // widget = getWidgetById(widgetId);
+    widgetModel.findById(widgetId)
+        .then(function(w) {
+            var widget = w;
+            widget.url = '/uploads/'+filename;
+            w.url = "/uploads/" + filename;
+            w.save();
+        });
 
     var callbackUrl   = "/assignment/index.html#!/user/"+userId+"/website/"+websiteId + "/page";
 

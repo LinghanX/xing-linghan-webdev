@@ -5,7 +5,6 @@ const connectDb = process.env.MLAB_USERNAME
 mongoose.connect(connectDb);
 mongoose.Promise = require("q").Promise;
 
-
 require('./services/user.service.server');
 require('./services/web.service.server');
 require('./services/page.service.server');
