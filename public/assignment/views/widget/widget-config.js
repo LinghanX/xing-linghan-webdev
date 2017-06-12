@@ -16,6 +16,10 @@
             .when('/user/:userId/website/:wid/page/:pid/widget/:wgid', {
                 templateUrl: './views/widget/templates/widget-edit.view.client.html',
                 controller: 'WidgetEditController as model'
+            })
+            .when('/user/:userId/website/:wid/page/:pid/widget/:wgit/search', {
+                templateUrl: './views/widget/editors/widget-flickr-search.view.client.html',
+                controller: 'WidgetFlickrSearchController as model'
             });
     }
 })();

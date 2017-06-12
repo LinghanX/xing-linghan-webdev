@@ -17,7 +17,6 @@
 </nav>
 
 <div class="container-fluid">
-
     <form action="/api/upload"   method="post" enctype="multipart/form-data">
         <input  name="myFile"    type="file" class="form-control"/>
         <!--<input  name="width"     value="{{model.widget.width}}" style="display: none"/>-->
@@ -47,6 +46,10 @@
 
     <!--<a href=""-->
        <!--class="btn btn-block btn-success">Upload</a>-->
+
+    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search" class="btn btn-block btn-success">
+        Search
+    </a>
 
     <a ng-click="model.deleteWidget()"
        class="btn btn-block btn-danger">Delete</a>
