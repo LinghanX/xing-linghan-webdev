@@ -6,9 +6,19 @@ const userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
+    roles: [{type: String, default: 'USER', enum: ['USER', 'ADMIN']}],
     phone: String,
-    websites: [{type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"}],
-    dateCreated: {type: Date, default: Date.now}
+    websites: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "WebsiteModel"
+        }
+    ],
+    dateCreated: {type: Date, default: Date.now},
+    facebook: {
+        id: String,
+        token: String
+    }
 }, {collection: "user"});
 
 module.exports = userSchema;

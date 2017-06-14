@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const userSchema = require("./user.schema.server");
+const findOrCreate = require('mongoose-findorcreate');
+userSchema.plugin(findOrCreate);
 const userModel = mongoose.model("UserModel", userSchema);
 
 userModel.createUser = createUser;
@@ -11,8 +13,13 @@ userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 userModel.deleteWebsite = deleteWebsite;
 userModel.addWebsite = addWebsite;
+userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
+
+function findUserByFacebookId(facebookId) {
+    return userModel.findOne({'facebook.id': facebookId});
+}
 
 function deleteWebsite(userId, websiteId){
     return userModel
@@ -54,8 +61,6 @@ function findUserByCredentials(username, password) {
 }
 
 function updateUser(userId, newUser) {
-    delete newUser.username;
-    delete newUser.password;
     return userModel.update({ _id: userId }, { $set: newUser });
 }
 

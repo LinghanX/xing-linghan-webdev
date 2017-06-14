@@ -13,22 +13,19 @@
                 templateUrl: './views/user/templates/login.view.client.html',
                 controller: 'LoginController as model'
             })
+            .when('/login', {
+                templateUrl: './views/user/templates/login.view.client.html',
+                controller: 'LoginController as model'
+            })
             .when('/user', {
                 templateUrl: './views/user/templates/profile.view.client.html',
                 controller: 'ProfileController as model',
                 resolve: { loggedin: checkLoggedin }
             })
-            .when('/login', {
-                templateUrl: './views/user/templates/login.view.client.html',
-                controller: 'LoginController as model'
-            })
-            .when('/profile/:userId', {
+            .when('/profile', {
                 templateUrl: './views/user/templates/profile.view.client.html',
-                controller: 'ProfileController as model'
-            })
-            .when('/user/:userId', {
-                templateUrl: './views/user/templates/profile.view.client.html',
-                controller: 'ProfileController as model'
+                controller: 'ProfileController as model',
+                resolve: { loggedin: checkLoggedin }
             });
     }
 })();

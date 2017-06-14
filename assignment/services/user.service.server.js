@@ -2,6 +2,7 @@ const app = require('../../express');
 const userModel = require("../models/user/user.model.server");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -40,6 +41,19 @@ passport.use(
     )
 );
 
+passport.use(new FacebookStrategy(
+    {
+        clientID: "1440223599354471",
+        clientSecret: "76a782ae7f2e91c81a810ea2693ff9e5",
+        callbackURL: "http://localhost:3000/auth/facebook/callback"
+    },
+    function(accessToken, refreshToken, profile, cb)
+    {
+        userModel.findOrCreate({ 'facebook.id': profile.id }, function (err, user) {
+            return cb(err, user);
+        });
+    }
+));
 
 // queryUsers handles both findUserByUserName and findUserByCredentials
 app.get('/api/assignment/user/:userId', findUserById);
@@ -51,6 +65,16 @@ app.post('/api/login', passport.authenticate('local'), login);
 app.post('/api/logout', logout);
 app.post('/api/register', register);
 app.get('/api/loggedin', loggedin);
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback', passport.authenticate('facebook'), facebookLogin);
+
+function facebookLogin(req, res) {
+    if(req.user) {
+        res.redirect('/assignment/index.html#!/user');
+    } else {
+        res.sendStatus(404);
+    }
+}
 
 function loggedin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');

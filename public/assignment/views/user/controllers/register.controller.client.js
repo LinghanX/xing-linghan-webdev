@@ -22,7 +22,7 @@
 
             UserService.register(user)
                 .then(function(response) {
-                    $location.url('/user/' + response._id);
+                    $location.url('/user');
                 })
         }
     }

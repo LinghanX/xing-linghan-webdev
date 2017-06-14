@@ -18,7 +18,7 @@
         init();
 
         function updateUser(){
-            UserService.updateUser(model.userId, model.user)
+            UserService.updateUser(model.user._id, model.user)
                 .then(function(){
                     model.message = "User update was successful";
                 });
