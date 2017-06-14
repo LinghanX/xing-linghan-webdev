@@ -3,18 +3,17 @@
         .module('WebAppMaker')
         .controller('ProfileController', ProfileController);
 
-    function ProfileController($location, $routeParams, UserService) {
+    function ProfileController($location,
+                               $routeParams,
+                               UserService,
+                               $rootScope) {
         var model = this;
 
         function init(){
             model.userId = $routeParams['userId'];
-            UserService.findUserById(model.userId)
-                .then(function(response){
-                    model.user = response;
-                }, function(err) {
-                    model.error = "User not found";
-                });
+            model.user = $rootScope.currentUser;
             model.updateUser = updateUser;
+            model.logout = logout;
         }
         init();
 
@@ -23,6 +22,14 @@
                 .then(function(){
                     model.message = "User update was successful";
                 });
+        }
+
+        function logout() {
+            UserService.logout()
+                .then(function(response) {
+                    $rootScope.currentUser = null;
+                    $location.url('/users');
+                })
         }
     }
 })();

@@ -4,7 +4,10 @@
     function RegisterController($location, UserService) {
         var model = this;
 
-        model.registerUser = registerUser;
+        function init(){
+            model.registerUser = registerUser;
+        }
+        init();
 
         function registerUser(username, password, veryfyPassword) {
             if(password !== veryfyPassword) {
@@ -12,16 +15,15 @@
                 return ;
             }
 
-            var user = {
+            const user = {
                 username: username,
                 password: password
             };
 
-            UserService.createUser(user)
-                .then(function(response){
+            UserService.register(user)
+                .then(function(response) {
                     $location.url('/user/' + response._id);
-                });
-
+                })
         }
     }
 })();
