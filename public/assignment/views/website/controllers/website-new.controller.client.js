@@ -3,12 +3,12 @@
         .module('WebAppMaker')
         .controller('WebsiteNewController', WebsiteNewController);
 
-    function WebsiteNewController($routeParams, WebsiteService, $location) {
+    function WebsiteNewController($routeParams, WebsiteService, $location, $rootScope) {
         var model = this;
 
         function init() {
-            model.userId = $routeParams['userId'];
-            WebsiteService.findWebsitesByUser(model.userId)
+            model.user = $rootScope.currentUser;
+            WebsiteService.findWebsitesByUser(model.user._id)
                 .then(function(response){
                     model.websites = response;
                 });
@@ -27,11 +27,11 @@
                 description: description
             };
 
-            WebsiteService.createWebsite(model.userId, newWebsite)
+            WebsiteService.createWebsite(model.user._id, newWebsite)
                 .then(function(response){
                     console.log(response);
                 });
-            $location.url('user/' + model.userId + '/website');
+            $location.url('user/website');
         }
     }
 })();

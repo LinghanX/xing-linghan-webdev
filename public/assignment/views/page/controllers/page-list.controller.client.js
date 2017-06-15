@@ -3,12 +3,12 @@
         .module('WebAppMaker')
         .controller('PageListController', PageListController);
 
-    function PageListController($routeParams, PageService) {
+    function PageListController($routeParams, PageService, $rootScope) {
         var model = this;
 
         function init() {
             model.websiteId = $routeParams['wid'];
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             PageService.findPagesByWebsiteId(model.websiteId)
                 .then(function(response) {
                     model.pages = response;

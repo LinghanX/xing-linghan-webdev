@@ -3,11 +3,14 @@
         .module('WebAppMaker')
         .controller('WidgetNewController', WidgetNewController);
 
-    function WidgetNewController($routeParams, WidgetService, $location){
+    function WidgetNewController($routeParams,
+                                 WidgetService,
+                                 $location,
+                                 $rootScope){
         var model = this;
 
         function init(){
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
             const widget = {};
@@ -39,8 +42,7 @@
             WidgetService.updateWidget(model.widget._id, model.widget)
                 .then(function(response) {
                     $location.url(
-                        '/user/' + model.userId
-                        + '/website/' + model.websiteId
+                        '/user/website/' + model.websiteId
                         + '/page/' + model.pageId
                         + '/widget/' + model.widget._id);
                 });

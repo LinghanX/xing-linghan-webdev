@@ -23,7 +23,7 @@
         <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
         <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
         <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
-        <input  name="userId"  value="{{model.userId}}"   style="display: none"/>
+        <input  name="userId"  value="{{model.user._id}}"   style="display: none"/>
         <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
     </form>
 
@@ -47,7 +47,7 @@
     <!--<a href=""-->
        <!--class="btn btn-block btn-success">Upload</a>-->
 
-    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search" class="btn btn-block btn-success">
+    <a href="#!/user/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search" class="btn btn-block btn-success">
         Search
     </a>
 

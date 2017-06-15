@@ -9,7 +9,6 @@
         function init() {
             model.login = login;
         }
-
         init();
 
         function login(username, password) {
@@ -20,8 +19,7 @@
 
             UserService.login(attemptUser)
                 .then(function(response) {
-                    const user = response.data;
-                    $rootScope.currentUser = user;
+                    $rootScope.currentUser = response.data;
                     $location.url('/user');
                 });
         }

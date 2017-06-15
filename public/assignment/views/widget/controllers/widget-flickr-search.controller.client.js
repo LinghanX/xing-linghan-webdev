@@ -3,11 +3,15 @@
         .module('WebAppMaker')
         .controller('WidgetFlickrSearchController', WidgetFlickrSearchController);
 
-    function WidgetFlickrSearchController($routeParams, WidgetService, FlickrService, $location){
+    function WidgetFlickrSearchController($routeParams,
+                                          WidgetService,
+                                          FlickrService,
+                                          $location,
+                                          $rootScope){
         var model = this;
 
         function init(){
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
             model.widgetId = $routeParams['wgit'];
@@ -40,8 +44,7 @@
             WidgetService.updateWidget(model.widgetId, model.widget)
                 .then(function(response) {
                         $location.url(
-                            '/user/' + model.userId + "/website/"
-                            + model.websiteId + "/page/" + model.pageId
+                            "/user/website/" + model.websiteId + "/page/" + model.pageId
                             + "/widget"
                         );
 

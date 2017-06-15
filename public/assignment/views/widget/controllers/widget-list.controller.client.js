@@ -3,11 +3,11 @@
         .module('WebAppMaker')
         .controller('WidgetListController', WidgetListController);
 
-    function WidgetListController($routeParams, WidgetService, $sce){
+    function WidgetListController($routeParams, WidgetService, $sce, $rootScope){
         var model = this;
 
         function init(){
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
             WidgetService.findWidgetsByPageId(model.pageId)

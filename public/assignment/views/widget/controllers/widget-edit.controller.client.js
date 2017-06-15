@@ -3,11 +3,11 @@
         .module('WebAppMaker')
         .controller('WidgetEditController', WidgetEditController);
 
-    function WidgetEditController($routeParams, WidgetService, $location){
+    function WidgetEditController($routeParams, WidgetService, $location, $rootScope){
         var model = this;
 
         function init(){
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             model.websiteId = $routeParams['wid'];
             model.pageId = $routeParams['pid'];
             model.widgetId = $routeParams['wgid'];
@@ -24,8 +24,7 @@
             WidgetService.updateWidget(model.widgetId, model.widget)
                 .then(function(response) {
                     $location.url(
-                        '/user/' + model.userId
-                        + '/website/' + model.websiteId
+                        '/user/website/' + model.websiteId
                         + '/page/' + model.pageId
                         + '/widget');
                 });
@@ -35,8 +34,7 @@
             WidgetService.deleteWidget(model.pageId, model.widgetId)
                 .then(function(response) {
                     $location.url(
-                        '/user/' + model.userId
-                        + '/website/' + model.websiteId
+                        '/user/website/' + model.websiteId
                         + '/page/' + model.pageId
                         + '/widget');
                 });

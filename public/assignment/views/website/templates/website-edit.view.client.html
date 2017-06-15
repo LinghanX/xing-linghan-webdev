@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#!/user/{{model.userId}}">
+            <a class="navbar-brand" href="#!/user">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </a>
             <a class="navbar-brand">
@@ -23,12 +23,12 @@
                 <li class="list-group-item">
                     <div ng-repeat="website in model.websites" class="row">
                         <div class="col-8 edit-items" >
-                            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                            <a href="#!/user/website/{{website._id}}">
                                 {{ website.name }}
                             </a>
                         </div>
                         <div class="col-4 edit-items pull-right" >
-                            <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                            <a href="#!/user/website/{{website._id}}">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>

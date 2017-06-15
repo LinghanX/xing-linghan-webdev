@@ -3,13 +3,13 @@
         .module('WebAppMaker')
         .controller('PageEditController', PageEditController);
 
-    function PageEditController($location, $routeParams, PageService){
+    function PageEditController($location, $routeParams, PageService, $rootScope){
         var model = this;
 
         function init(){
             model.pageId = $routeParams['pid'];
             model.websiteId = $routeParams['wid'];
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             PageService.findPageById(model.pageId)
                 .then(function(response) {
                     model.page = response;
@@ -22,15 +22,13 @@
         function deletePage(){
             PageService.deletePage(model.pageId, model.websiteId);
             $location.url(
-                '/user/' + model.userId + '/website/' + model.websiteId
-                + '/page/');
+                '/user/website/' + model.websiteId + '/page/');
         }
 
         function updatePage(){
             PageService.updatePage(model.pageId, model.page);
             $location.url(
-                '/user/' + model.userId + '/website/' + model.websiteId
-                + '/page');
+                '/user/website/' + model.websiteId + '/page');
         }
     }
 })();

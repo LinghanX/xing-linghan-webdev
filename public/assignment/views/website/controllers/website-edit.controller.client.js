@@ -6,20 +6,17 @@
     function WebsiteEditController($routeParams,
                                    $location,
                                    WebsiteService,
+                                   $rootScope,
                                    UserService) {
         var model = this;
 
         function init(){
             model.deleteWebsite = deleteWebsite;
             model.updateWebsite = updateWebsite;
-            model.userId = $routeParams['userId'];
+            model.user = $rootScope.currentUser;
             model.websiteId = $routeParams['wid'];
 
-            UserService.findUserById(model.userId)
-                .then(function(response){
-                    model.user = response;
-                });
-            WebsiteService.findWebsitesByUser(model.userId)
+            WebsiteService.findWebsitesByUser(model.user._id)
                 .then(function(response){
                     model.websites = response;
                 });
@@ -37,7 +34,7 @@
                 .then(function(response){
                     console.log(response.data);
                 });
-            $location.url('/user/' + model.userId + '/website');
+            $location.url('/user/website');
         }
 
         function deleteWebsite(){
@@ -46,7 +43,7 @@
                     console.log(response.data);
                 });
 
-            $location.url('/user/' + model.userId + '/website');
+            $location.url('/user/website');
         }
     }
 })();
