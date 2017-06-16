@@ -10,8 +10,17 @@
         init();
 
         function registerUser(username, password, veryfyPassword) {
+            if(
+                username === undefined ||
+                password === undefined ||
+                veryfyPassword === undefined
+            ) {
+                model.message = "Please fillin all fields!";
+                return;
+            }
+
             if(password !== veryfyPassword) {
-                model.message = 'Error, veryfy password not correct, please try again';
+                model.message = 'Error, verify password not correct, please try again';
                 return ;
             }
 

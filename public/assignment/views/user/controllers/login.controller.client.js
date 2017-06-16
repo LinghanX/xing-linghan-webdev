@@ -12,6 +12,11 @@
         init();
 
         function login(username, password) {
+            if(username === undefined || password === undefined) {
+                model.message = "username and password must be filled!";
+                return;
+            }
+
             const attemptUser = {
                 username: username,
                 password: password
@@ -21,7 +26,9 @@
                 .then(function(response) {
                     $rootScope.currentUser = response.data;
                     $location.url('/user');
-                });
+                }).catch(function(err) {
+                    model.message = err.data;
+            });
         }
     }
 })();

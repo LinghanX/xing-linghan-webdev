@@ -14,6 +14,11 @@
         init();
 
         function createPage() {
+            if(model.name === undefined) {
+                model.message = "Please input a name";
+                return ;
+            }
+
             const page = {
                 "name": model.name,
                 "description": model.description

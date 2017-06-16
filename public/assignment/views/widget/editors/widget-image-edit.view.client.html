@@ -18,6 +18,13 @@
 
 <div class="container-fluid">
     <form action="/api/upload"   method="post" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input class="form-control"
+               name="name"
+               ng-model="model.widget.name"
+               placeholder="facebook"
+               value="{{model.widget.name}}"
+               id="name"/>
         <input  name="myFile"    type="file" class="form-control"/>
         <!--<input  name="width"     value="{{model.widget.width}}" style="display: none"/>-->
         <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
@@ -27,33 +34,12 @@
         <button type="submit"    class="btn btn-block btn-primary">Upload Image</button>
     </form>
 
-    <!--<label for="name">Name</label>-->
-    <!--<input class="form-control"-->
-           <!--ng-model="model.widget.name"-->
-           <!--placeholder="facebook"-->
-           <!--value="top heading"-->
-           <!--id="name"/>-->
-
-    <!--<label for="text">Text</label>-->
-    <!--<input class="form-control"-->
-           <!--ng-model="model.widget.text"-->
-           <!--placeholder="facebook"-->
-           <!--value="US Senate Reaches Compromise"-->
-           <!--id="text"/>-->
-
-    <!--<label for="file">Upload</label>-->
-    <!--<input id="file" multiple type="file" class="form-control"/>-->
-
-    <!--<a href=""-->
-       <!--class="btn btn-block btn-success">Upload</a>-->
-
     <a href="#!/user/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search" class="btn btn-block btn-success">
         Search
     </a>
 
     <a ng-click="model.deleteWidget()"
        class="btn btn-block btn-danger">Delete</a>
-
 </div>
 
 <div ng-include="'./views/components/profile-footer.view.client.html'"></div>

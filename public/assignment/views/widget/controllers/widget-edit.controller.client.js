@@ -21,6 +21,10 @@
         init();
 
         function updateWidget() {
+            if(model.widget.name === undefined) {
+                model.message = "Please input a name";
+                return ;
+            }
             WidgetService.updateWidget(model.widgetId, model.widget)
                 .then(function(response) {
                     $location.url(

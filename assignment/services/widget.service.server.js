@@ -17,6 +17,7 @@ function uploadImage(req, res) {
 
     var widgetId      = req.body.widgetId;
     // var width         = req.body.width;
+    var name          = req.body.name;
     var userId        = req.body.userId;
     var websiteId     = req.body.websiteId;
     var myFile        = req.file;
@@ -36,10 +37,11 @@ function uploadImage(req, res) {
             var widget = w;
             widget.url = '/uploads/'+filename;
             w.url = "/uploads/" + filename;
+            w.name = name;
             w.save();
         });
 
-    var callbackUrl   = "/assignment/index.html#!/user/"+userId+"/website/"+websiteId + "/page";
+    var callbackUrl   = "/assignment/index.html#!/user/website/"+websiteId + "/page";
 
     res.redirect(callbackUrl);
 }

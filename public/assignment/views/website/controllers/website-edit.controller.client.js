@@ -30,6 +30,11 @@
         init();
 
         function updateWebsite() {
+            if(model.website.name === undefined) {
+                model.message = "Please input a valid name";
+                return ;
+            }
+
             WebsiteService.updateWebsite(model.websiteId, model.website)
                 .then(function(response){
                     console.log(response.data);

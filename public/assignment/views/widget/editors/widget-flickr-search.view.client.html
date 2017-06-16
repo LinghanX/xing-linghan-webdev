@@ -23,6 +23,13 @@
 </div>
 
 <div class="row">
+    <label for="name">Name</label>
+    <input class="form-control"
+           ng-model="model.widget.name"
+           placeholder="facebook"
+           value="top heading"
+           id="name"/>
+
     <div class="col-xs-4" ng-repeat="photo in model.photos.photo">
         <img ng-click="model.selectPhoto(photo)"
              ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>

@@ -26,6 +26,11 @@
         }
 
         function updatePage(){
+            if(model.page.name === undefined) {
+                model.message = "Please input a valid name!";
+                return ;
+            }
+
             PageService.updatePage(model.pageId, model.page);
             $location.url(
                 '/user/website/' + model.websiteId + '/page');

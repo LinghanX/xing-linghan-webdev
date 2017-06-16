@@ -18,7 +18,7 @@
 
         function createWebsite(name, description){
             if(name === undefined || description === undefined) {
-                console.log('Error, please input name and description');
+                model.message = "Please input name and description";
                 return ;
             }
 
