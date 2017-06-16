@@ -3,6 +3,7 @@ const userModel = require("../models/user/user.model.server");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
+const bcrypt = require("bcrypt-nodejs");
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -20,12 +21,10 @@ passport.deserializeUser(function(user, done) {
 passport.use(
     new LocalStrategy(
         function(username, password, done) {
-            userModel.findUserByCredentials(username, password)
+            userModel.findUserByUsername(username)
                 .then(
                     function(user) {
-                        if(user) {
-                            console.log(user.username);
-                            console.log(user._id);
+                        if(user && bcrypt.compareSync(password, user.password)) {
                             return done(null, user);
                         } else {
                             return done(null, false);
@@ -82,6 +81,8 @@ function loggedin(req, res) {
 
 function register(req, res) {
     const user = req.body;
+    user.password = bcrypt.hashSync(user.password);
+
     userModel.createUser(user)
         .then(function(user) {
             if(user) {
@@ -141,6 +142,7 @@ function updateUser(req, res) {
 
 function createUser(req, res) {
     const user = req.body;
+    user.password = bcrypt.hashSync(user.password);
 
     userModel
         .createUser(user)
@@ -156,9 +158,9 @@ function queryUsers(req, res){
     const password = req.query.password;
 
     if(userName && password){
-        userModel.findUserByCredentials(userName, password)
+        userModel.findUserByUsername(userName)
             .then(function(user){
-                if(user){
+                if(user && bcrypt.compareSync(password, user.password)){
                     res.json(user);
                 } else {
                     res.sendStatus(404);
