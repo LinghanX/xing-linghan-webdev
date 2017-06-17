@@ -42,9 +42,9 @@ passport.use(
 
 passport.use(new FacebookStrategy(
     {
-        clientID: process.env.clientId || "1440223599354471",
-        clientSecret: process.env.clientSecret || "76a782ae7f2e91c81a810ea2693ff9e5",
-        callbackURL: process.env.callbackURL || "http://localhost:3000/auth/facebook/callback"
+        clientID: process.env.clientId,
+        clientSecret: process.env.clientSecret,
+        callbackURL: process.env.callbackURL
     },
     function(accessToken, refreshToken, profile, cb)
     {
